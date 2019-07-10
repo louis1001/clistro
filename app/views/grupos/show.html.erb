@@ -4,9 +4,21 @@
 <hr id="page-title-separator"/>
 
 <section class="grupo-details">
-    <div id="grupo-carrera"><%= @grupo.carrera.nombre %></div>
-    <div id="grupo-anio"><%= @grupo.anio %>  año</div>
+    <div id="grupo-carrera"><b>Carrera:</b> <%= @grupo.carrera.nombre %></div>
+    <div id="grupo-anio"><b>Año:</b> <%= @grupo.anio %>  año</div>
 </section>
+
+<section class="grupo-estudiantes">
+    <h2>Estudiantes</h2>
+    <ul class="lista-estudiante">
+        <% @grupo.estudiantes.each do |estudiante|%>
+        <li><%= estudiante.nombre %> <%= estudiante.apellido %></li>
+        <% end %>
+    </ul>
+</section>
+
+<a class="action-button little-button">Añadir Estudiante</a>
+<br/>
 
 <%= link_to 'Edit', edit_grupo_path(@grupo) %> |
 <%= link_to 'Back', grupos_path %>

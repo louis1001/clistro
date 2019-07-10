@@ -58,8 +58,19 @@ main::before{
 }
 
 h1, h2, h3{
-    margin: 0;
+    position: relative;
+    margin: 10px 0;
     padding: 0;
+}
+
+h1::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -15%;
+    transform: scaleX(0.8);
+    border-bottom: 1px solid var(--main-fg-color);
 }
 
 a {
@@ -85,6 +96,7 @@ a {
     border-radius: 5px;
     box-shadow: 0 0 5px #0003;
     transition: box-shadow 0.4s;
+    cursor: pointer;
 }
 
 .action-button:hover{

@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<h1 title="something small"><%= @estudiante.nombre %> <%= @estudiante.apellido %></h1>
+
+<% @estudiante.clases.each do |clase|%>
+<h2><%= clase.nombre %></h2>
+<% end %>
+
+<%= link_to 'Edit', edit_estudiante_path(@estudiante) %> |
+<%= link_to 'Back', estudiantes_path %>

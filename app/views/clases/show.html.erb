@@ -1,11 +1,35 @@
 <h1><%= @clase.nombre %></h1>
-<hr id="page-title-separator"/>
 <%= link_to 'Editar', edit_clase_path(@clase), class: "action-button little-button"%>
 
-<h3>Tareas</h3>
-
+<section class="clase-grupo-details">
 <ul>
-  <% @clase.tareas.each do |tarea| %>
-    <li><%= link_to tarea.id, url_for([tarea.clase, tarea]) %></li>
-  <% end %>
+  <%= @clase.grupo.get_codigo %>
+  <br/>
+  <%= @clase.grupo.carrera.nombre %>
 </ul>
+</section>
+
+<section class="clase-tareas">
+  <h2>Tareas</h2>
+
+  <ol>
+    <% @clase.tareas.each do |tarea| %>
+      <li><%= link_to "#{tarea.descripcion}", url_for([tarea.clase, tarea]) %> (<%= tarea.puntaje_maximo %>)</li>
+    <% end %>
+  </ol>
+</section>
+
+<section class="clase-estudiantes">
+    <h2>Estudiantes</h2>
+    <ol class="lista-estudiante">
+        <% @clase.estudiantes.each do |estudiante|%>
+        <li>
+          <a href="<%= url_for estudiante %>">
+            <%= estudiante.nombre %> <%= estudiante.apellido %>
+          </a>
+        </li>
+        <% end %>
+    </ol>
+</section>
+
+<a class="action-button little-button">Añadir Estudiante</a>

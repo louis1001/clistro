@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Estudiantes</h1>
+<% @estudiantes.each do |estudiante| %>
+  
+  <%= link_to estudiante.nombre, estudiante %>
+  <%= link_to 'Edit', edit_estudiante_path(estudiante) %>
+  <%= link_to 'Destroy', estudiante, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br/>
+<% end %>
+
+<%= link_to 'New Estudiante', new_estudiante_path %>

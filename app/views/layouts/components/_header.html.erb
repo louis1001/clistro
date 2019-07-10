@@ -1,8 +1,15 @@
 <header>
     <div id="left-header">
         <a id="back-button" href="javascript:history.back()">◀︎</a>
-        <h1 id="app-name"><%= link_to "Clistro", home_path %></h1>
+        <h1 id="app-name"><a href="/">Cl<span id="app-name-decor">•</span>istro</a></h1>
     </div>
+
+    <div id="center-header">
+        <%= link_to('Clases', "/clases") %>
+        <%= link_to('Grupos', grupos_path) %>
+        <%= link_to('Estudiantes', destroy_user_session_path, method: :delete) %>
+    </div>
+
     <div id="right-header">
         <% if user_signed_in? %>
             <li>

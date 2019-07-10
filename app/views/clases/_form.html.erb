@@ -15,11 +15,23 @@
     <%= hidden_field_tag("id", clase.id) %>
   <% end %>
 
+  <div class="field">
   <%= form.label :nombre %>
+  <br/>
   <%= form.text_field :nombre %>
+  </div>
 
+  <div class="field">
+  <%= form.label :icon %>
+  <br/>
+  <%= form.text_field :icon %>
+  </div>
+
+  <div class="field">
   <%= form.label :grupo_id %>
+  <br/>
   <%= form.select('grupo_id', options_from_collection_for_select(@grupos, :first, :last)) %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

@@ -2,6 +2,6 @@
 
 <%= render 'form', clase: @clase %>
 
-<li><%= link_to("Borrar", @clase, method: :delete)%></li>
+<%= link_to("Borrar", @clase, method: :delete, class: "action-button little-button")%>
 
-<%= link_to 'Show', @clase %>
+<%= link_to 'Show', @clase, class: "action-button little-button" %>

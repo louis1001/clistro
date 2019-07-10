@@ -9,6 +9,7 @@
     padding: 10px;
     transition: all 0.25s;
     color: var(--main-fg-color);
+    width: 120px;
 }
 
 .clase-card-content{

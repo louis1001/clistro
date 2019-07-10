@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     # get "/tarea/:id", to: "tareas#show", as: "show_tarea"
     resources :tareas, as: "tarea"
   end
+  resources :grupos
 
   # scope path: "/clases/:id" do
   #   get "index"

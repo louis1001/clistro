@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Clistro</title>
+    <title>Cl•istro</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,10 +17,8 @@
       <p id="notice"><%= notice %></p>
       <%= yield %>
     </main>
-    <%
-=begin%>
- <%= console %> 
-<%
-=end%>
+    <% if params[:debug] == 1 %>
+      <%= console %>
+    <% end %>
   </body>
 </html>

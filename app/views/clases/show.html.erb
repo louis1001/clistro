@@ -1,4 +1,6 @@
-<h2><%= @clase.nombre %></h2>
+<h1><%= @clase.nombre %></h1>
+<hr id="page-title-separator"/>
+<%= link_to 'Editar', edit_clase_path(@clase), class: "action-button little-button"%>
 
 <h3>Tareas</h3>
 
@@ -7,5 +9,3 @@
     <li><%= link_to tarea.id, url_for([tarea.clase, tarea]) %></li>
   <% end %>
 </ul>
-
-<%= link_to 'Editar', edit_clase_path(@clase) %>

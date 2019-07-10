@@ -1,5 +1,6 @@
 class Grupo < ApplicationRecord
   belongs_to :carrera
+  has_many :estudiantes
 
   def get_codigo
     anio = self.anio

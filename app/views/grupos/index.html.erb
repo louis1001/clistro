@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Grupos</h1>
+
+<ul>
+  <% @grupos.each do |grupo| %>
+    <li>
+      <%= link_to grupo.get_codigo, grupo %>
+      <%= grupo.carrera.nombre %> |
+      <%= grupo.anio %> año |
+      <%= grupo.estudiantes.length %> estudiantes
+      <%= link_to 'Edit', edit_grupo_path(grupo) %>
+      <%= link_to 'Destroy', grupo, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+<br>
+
+<%= link_to 'New Grupo', new_grupo_path %>

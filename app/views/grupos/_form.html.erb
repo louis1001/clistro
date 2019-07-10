@@ -1,0 +1,28 @@
+<%= form_with(model: grupo, local: true) do |form| %>
+  <% if grupo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grupo.errors.count, "error") %> prohibited this grupo from being saved:</h2>
+
+      <ul>
+      <% grupo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :carrera_id %>
+    <br/>
+    <%= form.select('carrera_id', options_from_collection_for_select(@carreras, :first, :last)) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :anio, "Año" %>
+    <%= form.number_field :anio, in: 1..5, step: 1, value: 1 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

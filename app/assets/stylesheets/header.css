@@ -1,4 +1,8 @@
 header{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,6 +18,14 @@ header #app-name{
     position: relative;
     margin: 0;
     font-weight: bolder;
+}
+
+#app-name #app-name-decor{
+    font-size: 0.6em;
+    color: var(--main-fg-color);
+    margin: -1px;
+    padding: 0;
+    opacity: 0.6;
 }
 
 #app-name::before{
@@ -33,6 +45,16 @@ header a{
     color: unset;
 }
 
+#center-header{
+    font-size: 0.8em;
+}
+
+header #center-header>a{
+    border-left: 1px solid var(--main-bg-color);
+    border-right: 1px solid var(--main-bg-color);
+    padding: 0 10px;
+}
+
 header * {
     display: inline-block;
     vertical-align: middle;
@@ -50,4 +72,10 @@ header li{
     margin: 0;
     font-size: 1.5em;
     font-weight: bolder;
+}
+
+@media(min-width: 500px){
+    body{
+        background: black;
+    }
 }

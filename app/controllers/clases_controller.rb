@@ -81,6 +81,6 @@ class ClasesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clase_params
-      params.fetch(:clase, {}).permit(:nombre, :grupo_id)
+      params.fetch(:clase, {}).permit(:nombre, :grupo_id, :icon)
     end
 end

@@ -63,4 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'high_voltage'
-gem 'mysql2'
+gem 'mysql2', groups: [:development]

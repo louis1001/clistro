@@ -1,0 +1,11 @@
+<h2><%= @clase.nombre %></h2>
+
+<h3>Tareas</h3>
+
+<ul>
+  <% @clase.tareas.each do |tarea| %>
+    <li><%= link_to tarea.id, url_for([tarea.clase, tarea]) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Editar', edit_clase_path(@clase) %>

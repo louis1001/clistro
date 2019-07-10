@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  apellido: MyString
+  carrera: one
+  grupo: one
+
+two:
+  nombre: MyString
+  apellido: MyString
+  carrera: two
+  grupo: two

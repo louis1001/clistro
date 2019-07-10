@@ -1,0 +1,18 @@
+<a href="<%= url_for clase %>">
+<li class="clase-card">
+    <div class="clase-card-content">
+        <%
+=begin%>
+ <%= clase.icon %> 
+<%
+=end%>
+        <figure class="clase-icon">&#129518;</figure>
+        <%= clase.nombre %>
+
+        <aside class="card-aditional">
+            <span><%= clase.grupo.get_codigo %></span>
+            <span><%= clase.estudiantes.length %> estudiantes</span>
+        </aside>
+    </div>
+</li>
+</a>

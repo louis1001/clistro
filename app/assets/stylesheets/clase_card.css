@@ -1,0 +1,42 @@
+
+.clase-card{
+
+    --card-shadow-color: #fff2;
+
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px var(--card-shadow-color);
+    padding: 10px;
+    transition: all 0.25s;
+    color: var(--main-fg-color);
+}
+
+.clase-card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.clase-card-content>.clase-icon{
+    font-size: 3.5em;
+    margin: 0;
+}
+
+.clase-card:hover{
+    box-shadow: 5px 5px 12px var(--card-shadow-color);
+    transform: translate(-2px, -2px);
+    z-index: -3;
+}
+
+.clase-card:active{
+    box-shadow: 0px 0px 2px var(--card-shadow-color);
+    transform: translate(0px, 0px);
+}
+
+.clase-card-content>.card-aditional{
+    font-size: 0.1em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

@@ -1,0 +1,83 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* My requires
+ *= require "clase_card.css"
+ *= require "header.css"
+ */
+
+:root{
+    --main-bg-color: #3C3D47;
+    --main-fg-color: #D9D5A1;
+    --link-fg-color: #559493;
+    --header-bg-color: #405160;
+    --header-fg-color: #A9CFB5;
+}
+
+body{
+    font-family: 'Open Sans', 'Verdana Regular', Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: var(--main-bg-color);
+    padding: 0;
+}
+
+main{
+    position: relative;
+    max-width: 600px;
+    min-height: calc(100vh - 62px);
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    /* box-shadow: 0 0 20px #000F; */
+    color: var(--main-fg-color);
+}
+
+main::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.249);
+    z-index: -1;
+}
+
+h1, h2, h3{
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--link-fg-color);
+    text-decoration: none;
+}
+
+.clase-scroll{
+    /* border: 1px solid black; */
+    padding: 10px 10px 20px 10px;
+    white-space: nowrap;
+    overflow-x: scroll;
+}
+
+.clase-scroll>*{
+    margin: 0 10px;
+}
+
+.button{
+    background: var(--header-bg-color);
+    
+}

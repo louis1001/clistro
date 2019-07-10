@@ -1,0 +1,27 @@
+<%= form_with(model: clase, local: true) do |form| %>
+  <% if clase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(clase.errors.count, "error") %> prohibited this clase from being saved:</h2>
+
+      <ul>
+      <% clase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if clase.id != nil %>
+    <%= hidden_field_tag("id", clase.id) %>
+  <% end %>
+
+  <%= form.label :nombre %>
+  <%= form.text_field :nombre %>
+
+  <%= form.label :grupo_id %>
+  <%= form.select('grupo_id', options_from_collection_for_select(@grupos, :first, :last)) %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

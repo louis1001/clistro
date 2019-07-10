@@ -1,0 +1,17 @@
+<header>
+    <div id="left-header">
+        <a id="back-button" href="javascript:history.back()">◀︎</a>
+        <h1 id="app-name"><%= link_to "Clistro", home_path %></h1>
+    </div>
+    <div id="right-header">
+        <% if user_signed_in? %>
+            <li>
+            <%= link_to('Cerrar Sesion', destroy_user_session_path, method: :delete) %>
+            </li>
+        <% else %>
+            <li>
+            <%= link_to('Iniciar Sesion', new_user_session_path) %>
+            </li>
+        <% end %>
+    </div>
+</header>

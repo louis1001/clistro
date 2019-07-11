@@ -45,14 +45,16 @@ tareas = Tarea.create([
 
 estudiantes = Estudiante.create([
     {
+        carnet: "2015-0213N",
         nombre: "Luis",
         apellido: "Gonzalez",
         carrera: carreras[0],
         grupo: grupos.first
     },
     {
-        nombre: "Bayar",
-        apellido: "Falcon",
+        carnet: "2014-0000N",
+        nombre: "Jose",
+        apellido: "Zeledon",
         carrera: carreras[0],
         grupo: grupos.first
     }

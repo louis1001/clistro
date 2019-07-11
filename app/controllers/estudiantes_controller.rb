@@ -1,5 +1,7 @@
 class EstudiantesController < ApplicationController
   before_action :set_estudiante, only: [:show, :edit, :update, :destroy]
+  before_action :set_carreras, only: [:new, :edit]
+  before_action :set_grupos, only: [:new, :edit]
 
   # GET /estudiantes
   # GET /estudiantes.json
@@ -67,8 +69,22 @@ class EstudiantesController < ApplicationController
       @estudiante = Estudiante.find(params[:id])
     end
 
+    def set_carreras
+      @carreras = {}
+      Carrera.all.each do |x|
+        @carreras[x.id] = x.nombre
+      end
+    end
+
+    def set_grupos
+      @grupos = {}
+      Grupo.all.each do |x|
+        @grupos[x.id] = x.get_codigo
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def estudiante_params
-      params.fetch(:estudiante, {})
+      params.fetch(:estudiante, {}).permit(:carnet, :nombre, :apellido, :carrera_id, :grupo_id)
     end
 end

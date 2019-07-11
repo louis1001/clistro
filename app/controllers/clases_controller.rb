@@ -1,6 +1,7 @@
 class ClasesController < ApplicationController
   before_action :set_clase, only: [:show, :edit, :update, :destroy]
-  before_action :set_grupos, only: [:new, :edit]
+  before_action :set_grupos, only: [:new, :edit, :show]
+  before_action :set_estudiantes_disponibles, only: [:show]
 
   # GET /clases
   # GET /clases.json
@@ -77,6 +78,13 @@ class ClasesController < ApplicationController
       Grupo.all.each { |x|
         @grupos[x.id] = x.get_codigo
       }
+    end
+
+    def set_estudiantes_disponibles
+      @estudiantes_disponibles = {}
+      Estudiante.all.each do |x|
+        @estudiantes_disponibles[x.id] = "#{x.carnet} - #{x.nombre} #{x.apellido}"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

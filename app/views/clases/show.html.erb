@@ -25,11 +25,15 @@
         <% @clase.estudiantes.each do |estudiante|%>
         <li>
           <a href="<%= url_for estudiante %>">
-            <%= estudiante.nombre %> <%= estudiante.apellido %>
+            <%= estudiante.carnet %> <%= estudiante.nombre %> <%= estudiante.apellido %>
           </a>
         </li>
         <% end %>
     </ol>
 </section>
 
-<a class="action-button little-button">Añadir Estudiante</a>
+<div class="clase-add-estudiante">
+  <a class="action-button little-button">Añadir Estudiante</a>
+  <%= select_tag('grupo_id', options_from_collection_for_select(@grupos, :first, :last)) %>
+  <%= select_tag('estudiante_id', options_from_collection_for_select(@estudiantes_disponibles, :first, :last)) %>
+</div>

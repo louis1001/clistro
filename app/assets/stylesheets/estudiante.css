@@ -1,0 +1,24 @@
+
+.tarea-lista-estudiante{
+    padding: 0;
+}
+
+.tarea-estudiante-element{
+    list-style: none;
+}
+
+.estudiante-tarea{
+    display: flex;
+    padding: 0 100px;
+    justify-content: space-between;
+}
+
+.puntaje-field{
+    color: var(--main-fg-color);
+}
+
+.estudiante-tarea input{
+    background: var(--main-bg-color);
+    filter: saturate(0.4);
+    border: 1px var(--main-fg-color) solid;
+}

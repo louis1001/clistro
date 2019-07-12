@@ -40,10 +40,13 @@ main{
     min-height: calc(100vh - 62px);
     margin: 0 auto;
     margin-top: 60px;
-    padding: 10px;
+    padding: 40px 10px;
     box-sizing: border-box;
-    /* box-shadow: 0 0 20px #000F; */
     color: var(--main-fg-color);
+}
+
+section{
+    margin: 50px 0;
 }
 
 main::before{
@@ -97,6 +100,8 @@ a {
     box-shadow: 0 0 5px #0003;
     transition: box-shadow 0.4s;
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .action-button:hover{
@@ -106,6 +111,16 @@ a {
 
 .little-button{
     font-size: 0.4em;
+}
+
+.blank-list-set{
+    opacity: 0.5;
+    padding: 20px 0;
+    margin: 0 auto;
+    text-align: center;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 form{

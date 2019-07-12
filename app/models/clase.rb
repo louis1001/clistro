@@ -3,4 +3,5 @@ class Clase < ApplicationRecord
   belongs_to :grupo
   has_and_belongs_to_many :estudiantes
   has_many :tareas
+  has_many :resumenes
 end

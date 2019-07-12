@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  despues_de: 1
+  codigo: MyString
+  clase: one
+
+two:
+  despues_de: 1
+  codigo: MyString
+  clase: two

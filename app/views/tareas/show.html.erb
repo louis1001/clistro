@@ -1,6 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<%= @tarea.descripcion %>
+<h1><%= @tarea.descripcion %></h1>
+
+<section class="clase-estudiantes">
+    <h2>Estudiantes</h2>
+    <% if @clase.estudiantes.length != 0%>
+      <ol class="tarea-lista-estudiante">
+        <% @clase.estudiantes.each do |estudiante|%>
+        <li class="tarea-estudiante-element">
+          <div class="estudiante-tarea">
+            <div>
+            <%= estudiante.carnet %> - 
+            <a href="<%= url_for estudiante %>">
+              <%= estudiante.nombre %> <%= estudiante.apellido %>
+            </a>
+            </div>
+            <%= text_field_tag :punjate, nil, class: "puntaje-field", :maxlength => 5, :size => 5 %>
+          </div>
+        </li>
+        <% end %>
+      </ol>
+    <% else %>
+      <div class="blank-list-set">Ningun estudiante en esta clase.</div>
+    <% end %>
+</section>
 
 <%
 =begin%>

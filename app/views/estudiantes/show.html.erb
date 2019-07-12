@@ -4,6 +4,19 @@
 
 <% @estudiante.clases.each do |clase|%>
 <h2><%= clase.nombre %></h2>
+<h3>Tareas</h3>
+<% if clase.tareas.length != 0%>
+  <ol id="lista-tareas">
+    <% clase.tareas.each do |tarea| %>
+      <li class="lista-tarea-element">
+        <%= link_to "#{tarea.descripcion}", url_for([tarea.clase, tarea]) %>
+        (<%= tarea.puntaje_maximo %>)
+      </li>
+    <% end %>
+  </ol>
+  <% else %>
+    <div class="blank-list-set">Ningun tarea asignada a esta clase.</div>
+  <% end %>
 <% end %>
 
 <%= link_to 'Edit', edit_estudiante_path(@estudiante) %> |

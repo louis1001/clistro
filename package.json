@@ -1,5 +1,6 @@
 {
   "name": "clistro",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {}
 }

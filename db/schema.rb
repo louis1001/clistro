@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_10_223242) do
+ActiveRecord::Schema.define(version: 2019_07_12_045123) do
 
   create_table "carreras", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nombre"
@@ -68,12 +68,23 @@ ActiveRecord::Schema.define(version: 2019_07_10_223242) do
     t.index ["carrera_id"], name: "index_grupos_on_carrera_id"
   end
 
+  create_table "resumenes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "despues_de"
+    t.string "codigo"
+    t.bigint "clase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "descripcion"
+    t.index ["clase_id"], name: "index_resumenes_on_clase_id"
+  end
+
   create_table "tareas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "descripcion"
     t.integer "puntaje_maximo"
     t.bigint "clase_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "orden"
     t.index ["clase_id"], name: "index_tareas_on_clase_id"
   end
 
@@ -95,5 +106,6 @@ ActiveRecord::Schema.define(version: 2019_07_10_223242) do
   add_foreign_key "estudiantes", "carreras"
   add_foreign_key "estudiantes", "grupos"
   add_foreign_key "grupos", "carreras"
+  add_foreign_key "resumenes", "clases"
   add_foreign_key "tareas", "clases"
 end

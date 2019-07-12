@@ -13,4 +13,23 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+
 //= require_tree .
+
+function generateAddEstudiante(estudiantes){
+    let divName = ".clase-add-estudiante"
+    var newDiv = document.createElement('div')
+    var selectHTML = ""
+    selectHTML="<select>"
+    for (let est of estudiantes) {
+        console.log(est)
+        selectHTML += "<option value='" + est.id + "'>" + est.carnet + " - " + est.nombre + " " + est.apellido + "</option>"
+    }
+    selectHTML += "</select>\n"
+    newDiv.innerHTML += selectHTML
+    newDiv.style.display = "none"
+
+    document.querySelector(divName).appendChild(newDiv)
+
+    return newDiv
+}

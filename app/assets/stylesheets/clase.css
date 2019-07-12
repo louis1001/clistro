@@ -1,0 +1,31 @@
+
+#title-tareas{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.separator{
+    pointer-events: none;
+}
+
+#lista-tareas{
+    list-style: none;
+    padding: 0;
+    font-size: 0.6em;
+}
+
+#lista-tareas li{
+    padding: 15px 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--header-bg-color);
+    border-top: 1px solid var(--header-bg-color);
+}
+
+.handle{
+    user-select: none;
+    cursor: pointer;
+    font-size: 2em;
+    vertical-align: middle;
+    margin: 0 10px;
+}

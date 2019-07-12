@@ -1,6 +1,34 @@
 <h1><%= @clase.nombre %></h1>
 <%= link_to 'Editar', edit_clase_path(@clase), class: "action-button little-button"%>
 
+<script>
+
+window.estudiantes_disponibles = 
+  <%==
+    Estudiante.all.select{ |x|
+      !@clase.estudiantes.include? x
+    }.to_json
+  %>
+
+addEventListener('load', ()=>{
+  $('#lista-tareas').sortable({
+    // SortableJS options go here
+    // See: (https://github.com/SortableJS/Sortable#options)
+
+    handle: '.handle',
+    invertSwap: true
+  })
+  let addDiv = generateAddEstudiante(estudiantes_disponibles)
+
+  let addEstudianteB = document.querySelector("#add-estudiante-button")
+  addEstudianteB.addEventListener('click', ()=>{
+    console.log("Click")
+    addDiv.style.display = addDiv.style.display == "none" ? "block" : "none"
+  })
+})
+
+</script>
+
 <section class="clase-grupo-details">
 <ul>
   <%= @clase.grupo.get_codigo %>
@@ -10,30 +38,43 @@
 </section>
 
 <section class="clase-tareas">
-  <h2>Tareas</h2>
+  <h2 id="title-tareas">Tareas<span class="separator">|</span>Resumenes</h2>
 
-  <ol>
+  <% if @clase.tareas.length != 0%>
+  <ol id="lista-tareas">
     <% @clase.tareas.each do |tarea| %>
-      <li><%= link_to "#{tarea.descripcion}", url_for([tarea.clase, tarea]) %> (<%= tarea.puntaje_maximo %>)</li>
+      <li class="lista-tarea-element">
+        <span class="handle">≡</span>
+        <%= link_to "#{tarea.descripcion}", url_for([tarea.clase, tarea]) %>
+        (<%= tarea.puntaje_maximo %>)
+      </li>
     <% end %>
   </ol>
+  <% else %>
+    <div class="blank-list-set">Ningun tarea asignada a esta clase.</div>
+  <% end %>
+  <span class="action-button little-button">Añadir tarea</span>
 </section>
 
 <section class="clase-estudiantes">
     <h2>Estudiantes</h2>
-    <ol class="lista-estudiante">
+    <% if @clase.estudiantes.length != 0%>
+      <ol class="lista-estudiante">
         <% @clase.estudiantes.each do |estudiante|%>
         <li>
           <a href="<%= url_for estudiante %>">
-            <%= estudiante.carnet %> <%= estudiante.nombre %> <%= estudiante.apellido %>
+            <%= estudiante.carnet %> - <%= estudiante.nombre %> <%= estudiante.apellido %>
           </a>
         </li>
         <% end %>
-    </ol>
+      </ol>
+    <% else %>
+      <div class="blank-list-set">Ningun estudiante en esta clase.</div>
+    <% end %>
 </section>
 
 <div class="clase-add-estudiante">
-  <a class="action-button little-button">Añadir Estudiante</a>
-  <%= select_tag('grupo_id', options_from_collection_for_select(@grupos, :first, :last)) %>
-  <%= select_tag('estudiante_id', options_from_collection_for_select(@estudiantes_disponibles, :first, :last)) %>
+  <a id="add-estudiante-button" class="action-button little-button">Añadir Estudiante</a>
+  <%#= select_tag('grupo_id', options_from_collection_for_select(@grupos, :first, :last)) %>
+  <%#= select_tag('estudiante_id', options_from_collection_for_select(@estudiantes_disponibles, :first, :last)) %>
 </div>
